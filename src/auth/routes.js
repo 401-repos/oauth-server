@@ -2,7 +2,7 @@
 
 const express = require('express');
 const authRouter = express.Router();
-
+const oauth = require('../auth/middleware/oauth');
 const User = require('./models/users.js');
 const basicAuth = require('./middleware/basic.js');
 const bearerAuth = require('./middleware/bearer.js');
@@ -39,5 +39,7 @@ authRouter.get('/users', bearerAuth, permissions('delete'), async (_req, res, _n
 authRouter.get('/secret', bearerAuth, async (_req, res, _next) => {
   res.status(200).send('Welcome to the secret area');
 });
+
+authRouter.get('/oauth', oauth);
 
 module.exports = authRouter;
