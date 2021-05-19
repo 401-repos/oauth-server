@@ -1,0 +1,42 @@
+{
+  "name": "auth-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/401-repos/auth-api.git"
+  },
+  "author": "Omar Ramadan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/401-repos/auth-api/issues"
+  },
+  "homepage": "https://github.com/401-repos/auth-api#readme",
+  "scripts": {
+    "watch": "nodemon index.js",
+    "start": "node index.js",
+    "lint": "eslint **/*.js",
+    "test": "jest --coverage --verbose",
+    "test-watch": "jest --watchAll --coverage"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "keywords": [],
+  "dependencies": {
+    "@code-fellows/supergoose": "^1.0.11",
+    "base-64": "^1.0.0",
+    "bcrypt": "^5.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.14.0",
+    "express": "^4.17.1",
+    "jest": "^26.6.3",
+    "jsonwebtoken": "^8.5.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.10.15",
+    "morgan": "^1.10.0",
+    "supertest": "^6.0.1"
+  }
+}
