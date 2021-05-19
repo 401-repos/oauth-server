@@ -13,7 +13,7 @@ const authRoutes = require('./auth/routes.js');
 
 // Prepare the express app
 const app = express();
-
+app.use(express.static('public'))
 // App Level MW
 app.use(cors());
 app.use(morgan('dev'));
@@ -26,7 +26,7 @@ app.use(logger);
 app.use(authRoutes);
 app.use('/api/v2', v1Routes);
 app.get('/', (_req, res) => {
-  res.status(200).send("Proof Of Life")
+  res.status(200).sendFile('index')
 });
 
 // Catchalls

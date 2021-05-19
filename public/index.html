@@ -7,29 +7,22 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
-        window.fbAsyncInit = function () {
-            FB.init({
-                appId: '{your-app-id}',
-                cookie: true,
-                xfbml: true,
-                version: '{api-version}'
-            });
-
-            FB.AppEvents.logPageView();
-
-        };
-
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {
-                return;
-            }
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
+    <a id="oauth">Google Auth</a>
 </body>
+    <script>
+        const root = 'https://accounts.google.com/o/oauth2/v2/auth';
+        const option ={
+            redirect_uri:'http://localhost:3000/oauth',
+            client_id:'1029747680749-m78s69o987ni3hq2fc2uljuorp9ldpvn.apps.googleusercontent.com',
+            response_type:'code',
+            scope: "https://www.googleapis.com/auth/userinfo.profile",
+        }
+         let queryString = Object.keys(option).map(key=> {
+         return `${key}=` + encodeURIComponent(option[key])
+         }).join('&');
+         const url = `${root}?${queryString}`;
+         const link = document.getElementById('oauth');
+         link.setAttribute('href', url);
+         console.log(url);
+    </script>
 </html>

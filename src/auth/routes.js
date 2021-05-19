@@ -40,6 +40,12 @@ authRouter.get('/secret', bearerAuth, async (_req, res, _next) => {
   res.status(200).send('Welcome to the secret area');
 });
 
-authRouter.get('/oauth', oauth);
+authRouter.get('/oauth', oauth, async (req, res) => {
+  res.cookie(req.token);
+  res.set(req.token);
+  res.status(201);
+  console.log(req.token);
+  res.send({user: req.userInfo, token:req.token});
+});
 
 module.exports = authRouter;
